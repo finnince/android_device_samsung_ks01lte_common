@@ -32,6 +32,25 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 
 
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=361
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+
+DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=0
+DEFAULT_PROPERTY_OVERRIDES += ro.secure=0
+DEFAULT_PROPERTY_OVERRIDES += ro.allow.mock.location=1
+#DEFAULT_PROPERTY_OVERRIDES += debug.mdpcomp.logs=1
+#PRODUCT_COPY_FILES += device/samsung/ks01lte-common/default.prop:/root/default.prop
+
+PRODUCT_COPY_FILES += vendor/samsung/ks01lte-common/proprietary/vendor/lib/libqc-opt.so:/system/lib/libqc-opt.so
+PRODUCT_COPY_FILES += device/samsung/ks01lte-common/rootdir/system/bin/p2p_supplicant:/system/bin/p2p_supplicant
+PRODUCT_COPY_FILES += device/samsung/ks01lte-common/rootdir/system/CSCVersion.txt:/system/CSCVersion.txt
+PRODUCT_COPY_FILES += device/samsung/ks01lte-common/rootdir/system/kern_sec_info:/system/kern_sec_info
+PRODUCT_COPY_FILES += device/samsung/ks01lte-common/rootdir/system/SW_Configuration.xml:/system/SW_Configuration.xml
+PRODUCT_COPY_FILES += device/samsung/ks01lte-common/rootdir/system/tima_measurement_info:/system/tima_measurement_info
+
+
 # Kernel Configs
 TARGET_KERNEL_SOURCE := kernel/samsung/ks01lte
 TARGET_KERNEL_CONFIG := msm8974_sec_defconfig
@@ -39,6 +58,9 @@ TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
+#BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
+
+
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --second_offset 0x00f00000
@@ -65,6 +87,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2390753280
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12685655040
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+# Flags
+#COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+
 # bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/ks01lte-common/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/ks01lte-common/bluetooth/vnd_hlte-common.txt
@@ -88,7 +113,8 @@ BOARD_USES_LEGACY_ALSA_AUDIO :=
 TARGET_QCOM_AUDIO_VARIANT := caf
 
 # Audio settings
-BOARD_USES_CUSTOM_AUDIO_PLATFORM_PATH := device/samsung/ks01lte-common/audio/platform
+BOARD_USES_ALSA_AUDIO := true
+#BOARD_USES_CUSTOM_AUDIO_PLATFORM_PATH := device/samsung/ks01lte-common/audio/platform
 AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 #
 #AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
@@ -110,10 +136,16 @@ TARGET_PROVIDES_LIBLIGHT := true
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Display
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+#NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
+
+
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+TARGET_USES_CM_POWERHAL := true
+
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.

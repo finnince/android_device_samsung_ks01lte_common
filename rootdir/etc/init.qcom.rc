@@ -845,5 +845,41 @@ service fastmmisrv /system/bin/sh /init.qcom.factory.sh
     disabled
     oneshot
 
+
+
+
+
+# for WiFi MFG (TestMode)
+service mfgloader /system/bin/mfgloader
+    class main
+    disabled
+    oneshot
+
+service wlandutservice /system/bin/wlandutservice
+    class main
+    user system
+    group wifi net_raw net_admin system inet
+    disabled
+    oneshot
+
+service macloader /system/bin/macloader
+    class main
+    oneshot
+
+on property:init.svc.macloader=stopped
+    chown system root /data/.cid.info
+    chmod 0664 /data/.cid.info
+    chown system root /data/.rev
+    chmod 0660 /data/.rev
+
+service ftm_ptt /system/bin/ftm_ptt -d
+    user root
+    group radio system
+    disabled
+# end of WiFi
+
+
+
+
 on ffbm
     start fastmmisrv

@@ -12,6 +12,7 @@ vendor/firmware/bcm4335.hcd:vendor/firmware/bcm4335.hcd
 vendor/firmware/bcm4335_A0.hcd
 vendor/firmware/bcm4335_semco.hcd
 vendor/firmware/bcm4335_murata.hcd
+vendor/firmware/BT_FW_VER_BCM4335B0_002.001.006.0301.0306_ORC_KS01.hcd
 
 # GPS
 vendor/lib/libgeofence.so
@@ -64,6 +65,53 @@ vendor/lib/libsc-a2xx.so
 vendor/lib/libsc-a3xx.so
 #vendor/firmware/a330_pfp.fw
 #vendor/firmware/a330_pm4.fw
+
+################## test ##################
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a300_pm4.fw
+etc/firmware/a330_pfp.fw
+etc/firmware/a330_pm4.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+
+etc/secure_storage/ss_config
+etc/secure_storage/com.samsung.android.providers.context/ss_id
+etc/secure_storage/com.sec.knox.store/ss_id
+
+etc/snd_soc_msm/snd_soc_msm
+etc/snd_soc_msm/snd_soc_msm_2x_auxpcm
+etc/snd_soc_msm/snd_soc_msm_Sitar
+etc/snd_soc_msm/snd_soc_msm_Taiko
+etc/snd_soc_msm/snd_soc_msm_2x
+etc/snd_soc_msm/snd_soc_msm_auxpcm
+etc/snd_soc_msm/snd_soc_msm_Sitar_auxpcm
+etc/snd_soc_msm/snd_soc_msm_Taiko_CDP
+
+vendor/lib/hw/lights.msm8974.so
+vendor/lib/hw/power.qcom.so
+
+vendor/lib/mediadrm/libwvdrmengine.so
+
+vendor/lib/libqc-opt.so
+lib/libsam.so
+
+framework/sec_edm.jar
+framework/seccamera.jar
+framework/scrollpause.jar
+framework/stayrotation.jar
+framework/smartfaceservice.jar
+framework/secocsp.jar
+framework/abt-persistence.jar
+framework/sc.jar
+framework/oem-services.jar
+framework/commonimsinterface.jar
+framework/oem-services.jar
+framework/WfdCommon.jar
+
+################# !test! #################
 
 # Graphics
 vendor/lib/libmm-color-convertor.so
@@ -312,23 +360,29 @@ vendor/lib/liboemcamera.so
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin
-#etc/wifi/bcmdhd_apsta.bin_a0
+etc/wifi/bcmdhd_apsta.bin_a0
+etc/wifi/bcmdhd_ibss.bin
 etc/wifi/bcmdhd_mfg.bin
-#etc/wifi/bcmdhd_mfg.bin_a0
+etc/wifi/bcmdhd_mfg.bin_a0
 etc/wifi/bcmdhd_sta.bin
-#etc/wifi/bcmdhd_sta.bin_a0
+etc/wifi/bcmdhd_sta.bin_a0
 etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
-#etc/wifi/nvram_mfg.txt_a0
-#etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_mfg.txt_a0
 #etc/wifi/nvram_mfg.txt_murata
-#etc/wifi/nvram_mfg.txt_murata_a0
+etc/wifi/nvram_mfg.txt_murata_a0
 etc/wifi/nvram_mfg.txt_muratafem1
 etc/wifi/nvram_mfg.txt_muratafem2
+etc/wifi/nvram_mfg.txt_semco3rd
+etc/wifi/nvram_mfg.txt_semcosh
 etc/wifi/nvram_net.txt
+etc/wifi/nvram_net.txt_a0
 #etc/wifi/nvram_net.txt_murata
-#etc/wifi/nvram_net.txt_murata_a0
+etc/wifi/nvram_net.txt_murata_a0
 etc/wifi/nvram_net.txt_muratafem1
+etc/wifi/nvram_net.txt_muratafem2
+etc/wifi/nvram_net.txt_semco3rd
+etc/wifi/nvram_net.txt_semcosh
 etc/wifi/wpa_supplicant.conf
 
 # Perf
